@@ -1,14 +1,13 @@
-import "./index.css";
-import SurveyApp from "./App";
 import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import { ApiContextType, ApiProvider } from "./context/api-context.tsx";
 
-export function mountSurveyApp(elementId: string) {
-  const rootElement = document.getElementById(elementId);
-  if (!rootElement) {
-    console.error(`Element with ID '${elementId}' not found.`);
-    return;
-  }
-  createRoot(rootElement).render(<SurveyApp />);
-}
-
-mountSurveyApp("root");
+export const RootApp = ({ apiKey }: ApiContextType) => {
+  return (
+    <ApiProvider apiKey={apiKey}>
+      <App />
+    </ApiProvider>
+  );
+};
+createRoot(document.getElementById("root")!).render(<RootApp apiKey="test" />);

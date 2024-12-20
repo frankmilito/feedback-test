@@ -1,18 +1,23 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-
+import dts from "vite-plugin-dts";
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    dts({
+      insertTypesEntry: true,
+    }),
+  ],
   build: {
     lib: {
-      entry: "./src/main.tsx", // Use the file that exposes the mount function
-      name: "SurveyApp",
+      entry: "./src/index.ts",
+      name: "Feedback",
       fileName: (format) => `survey-app.${format}.js`,
       formats: ["es", "umd"],
     },
     rollupOptions: {
-      external: ["react", "react-dom"], // Peer dependencies for React projects
+      external: ["react", "react-dom"],
       output: {
         globals: {
           react: "React",
@@ -20,5 +25,10 @@ export default defineConfig({
         },
       },
     },
+  },
+  define: {
+    "process.env.NODE_ENV": JSON.stringify(
+      process.env.NODE_ENV || "development"
+    ),
   },
 });

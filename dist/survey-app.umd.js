@@ -1,0 +1,9 @@
+(function(o,n){typeof exports=="object"&&typeof module<"u"?n(exports,require("react"),require("react-dom")):typeof define=="function"&&define.amd?define(["exports","react","react-dom"],n):(o=typeof globalThis<"u"?globalThis:o||self,n(o.Feedback={},o.React,o.ReactDOM))})(this,function(o,n,h){"use strict";var p={exports:{}},u={};/**
+ * @license React
+ * react-jsx-runtime.production.min.js
+ *
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */var l;function j(){if(l)return u;l=1;var e=n,f=Symbol.for("react.element"),S=Symbol.for("react.fragment"),b=Object.prototype.hasOwnProperty,w=e.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,C={key:!0,ref:!0,__self:!0,__source:!0};function _(c,r,v){var t,d={},a=null,y=null;v!==void 0&&(a=""+v),r.key!==void 0&&(a=""+r.key),r.ref!==void 0&&(y=r.ref);for(t in r)b.call(r,t)&&!C.hasOwnProperty(t)&&(d[t]=r[t]);if(c&&c.defaultProps)for(t in r=c.defaultProps,r)d[t]===void 0&&(d[t]=r[t]);return{$$typeof:f,type:c,key:a,ref:y,props:d,_owner:w.current}}return u.Fragment=S,u.jsx=_,u.jsxs=_,u}var R;function E(){return R||(R=1,p.exports=j()),p.exports}var i=E(),s={},x;function O(){if(x)return s;x=1;var e=h;return s.createRoot=e.createRoot,s.hydrateRoot=e.hydrateRoot,s}var q=O();const k=()=>i.jsx("div",{children:i.jsx("h1",{children:"Hello App"})}),A=n.createContext(null),P=({apiKey:e,children:f})=>{if(console.log(`Heres is your api key ${e}`),!e)throw new Error("Api key is required");return i.jsx(A.Provider,{value:{apiKey:e},children:f})},m=({apiKey:e})=>i.jsx(P,{apiKey:e,children:i.jsx(k,{})});q.createRoot(document.getElementById("root")).render(i.jsx(m,{apiKey:"test"})),o.RootApp=m,Object.defineProperty(o,Symbol.toStringTag,{value:"Module"})});
