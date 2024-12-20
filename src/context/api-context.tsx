@@ -11,7 +11,8 @@ export const ApiProvider = ({
 }: ApiContextType & { children: ReactNode }) => {
   console.log(`Heres is your api key ${apiKey}`);
   if (!apiKey) {
-    throw new Error("Api key is required");
+    console.error("API key is required to use Feedback App.");
+    return;
   }
   return (
     <ApiContext.Provider value={{ apiKey }}>{children}</ApiContext.Provider>

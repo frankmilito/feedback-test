@@ -7,11 +7,13 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
+      rollupTypes: true,
+      tsconfigPath: "./tsconfig.json",
     }),
   ],
   build: {
     lib: {
-      entry: "./src/index.ts",
+      entry: "./src/index.tsx",
       name: "Feedback",
       fileName: (format) => `survey-app.${format}.js`,
       formats: ["es", "umd"],
